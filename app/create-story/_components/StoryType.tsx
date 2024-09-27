@@ -4,7 +4,6 @@ import Image from 'next/image';
 
 export interface OptionField {
   label: string;
-  name: string;
   imageUrl: string;
   isFree: boolean;
 }
@@ -13,19 +12,16 @@ function StoryType({ userSelection }: any) {
   const optionList = [
     {
       label: 'Story Book',
-      name: 'storyBook',
       imageUrl: '/story.png ',
       isFree: true,
     },
     {
       label: 'Bed Story',
-      name: 'bedStory',
       imageUrl: '/bedstory.png ',
       isFree: true,
     },
     {
       label: 'Educational',
-      name: 'educationalStory',
       imageUrl: '/educational.png ',
       isFree: true,
     },
@@ -34,9 +30,9 @@ function StoryType({ userSelection }: any) {
   const [selectedOption, setSelectedOption] = useState<string>();
 
   const onUserSelect = (item: OptionField) => {
-    setSelectedOption(item.name);
+    setSelectedOption(item.label);
     userSelection({
-      fieldValue: item.name,
+      fieldValue: item.label,
       fieldName: 'storyType',
     });
   };
@@ -49,7 +45,7 @@ function StoryType({ userSelection }: any) {
           <div
             className={`relative grayscale hover:grayscale-0 cursor-pointer p-1
             ${
-              selectedOption === item.name
+              selectedOption === item.label
                 ? 'grayscale-0 border-2  rounded-3xl border-primary'
                 : 'backdrop-grayscale'
             }`}

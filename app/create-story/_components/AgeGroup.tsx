@@ -6,19 +6,16 @@ function AgeGroup({ userSelection }: any) {
   const optionList = [
     {
       label: '0-2 Years',
-      name: '02Years',
       imageUrl: '/02Years.png ',
       isFree: true,
     },
     {
       label: '3-5 Years',
-      name: '35Years',
       imageUrl: '/35Years.png ',
       isFree: true,
     },
     {
       label: '5-8 Years',
-      name: '58Years',
       imageUrl: '/58Years.png ',
       isFree: true,
     },
@@ -27,9 +24,9 @@ function AgeGroup({ userSelection }: any) {
   const [selectedOption, setSelectedOption] = useState<string>();
 
   const onUserSelect = (item: OptionField) => {
-    setSelectedOption(item.name);
+    setSelectedOption(item.label);
     userSelection({
-      fieldValue: item.name,
+      fieldValue: item.label,
       fieldName: 'ageGroup',
     });
   };
@@ -42,7 +39,7 @@ function AgeGroup({ userSelection }: any) {
           <div
             className={`relative grayscale hover:grayscale-0 cursor-pointer p-1
                 ${
-                  selectedOption === item.name
+                  selectedOption === item.label
                     ? 'grayscale-0 border-2  rounded-3xl border-primary'
                     : 'backdrop-grayscale'
                 }`}
