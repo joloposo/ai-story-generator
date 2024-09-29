@@ -11,6 +11,9 @@ import { StoryData } from '@/config/schema';
 import { v4 as uuid4 } from 'uuid';
 import CustomLoader from './_components/CustomLoader';
 import axios from 'axios';
+import { useUser } from '@clerk/nextjs';
+import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
 
 const CREATE_STORY_PROMPT = process.env.NEXT_PUBLIC_CREATE_STORY_PROMPT;
 export interface fieldData {
@@ -28,13 +31,16 @@ export interface formDataType {
 function CreateStory() {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [formData, setFormData] = useState<formDataType>();
+    const { user } = useUser();
+    const router = useRouter();
+    const notify = (message: string) => toast(message);
+    const notifyError = (message: string) => toast.error(message);
+
     const onHandleUserSelection = (data: fieldData) => {
         setFormData((prevData: any) => ({
             ...prevData,
             [data.fieldName]: data.fieldValue,
         }));
-
-        console.log('formData', formData);
     };
 
     const GenerateStory = async () => {
@@ -68,13 +74,15 @@ function CreateStory() {
             });
 
             const firebaseImageUrl = imageResult?.data?.imageUrl;
-            console.log(firebaseImageUrl);
 
             // Save the generated story to the database
             var response = await SaveInDB(result.response.text(), firebaseImageUrl);
+            console.log('response', response);
+            notify('Story generated successfully');
+            router.replace(`/view-story/${response?.[0]?.storyId}`);
             setIsLoading(false);
         } catch (error) {
-            console.error('Error while generating story', error);
+            notifyError('Error while generating story');
             setIsLoading(false);
         }
 
@@ -97,9 +105,10 @@ function CreateStory() {
             imageStyle: formData?.imageStyle,
             output: JSON.parse(output),
             coverImage: firebaseImageUrl,
+            userEmail: user?.primaryEmailAddress?.emailAddress,
+            userName: user?.fullName,
+            userImage: user?.imageUrl,
         };
-
-        console.log('data', data);
 
         try {
             // Save the data to the database
