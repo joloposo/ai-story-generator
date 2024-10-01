@@ -37,7 +37,7 @@ function CustomLoader({ isLoading }: { isLoading: boolean }) {
                     className='w-[200px] h-[200px]'
                   />
                   <h2 className='text-2xl text-primary font-bold text-center'>
-                    Please Wait... Story is generating...
+                    Please Wait...
                   </h2>
                 </ModalBody>
               </>
