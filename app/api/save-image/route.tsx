@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
     const { url } = data;
 
     // const base64Image = 'data:image/png;base64,' + await convertImageToBase64(url);
-    const base64Image = await convertImageToBase64(url);
+    const base64Image = await convertImage(url);
 
     if (!base64Image) {
         return NextResponse.json({ error: 'Failed to convert image to base64' }, { status: 500 });
@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ imageUrl: downloadURL });
 }
 
-export const convertImageToBase64 = async (imageUrl: string) => {
+const convertImage = async (imageUrl: string) => {
     try {
         const response = await axios.get(imageUrl, { responseType: 'arraybuffer' });
         const base64Image = Buffer.from(response.data, 'binary').toString('base64');
