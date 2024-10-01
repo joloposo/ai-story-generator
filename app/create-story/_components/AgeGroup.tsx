@@ -6,17 +6,17 @@ function AgeGroup({ userSelection }: any) {
   const optionList = [
     {
       label: '0-2 Years',
-      imageUrl: '/02Years.png ',
+      imageUrl: '/static/images/02Years.png ',
       isFree: true,
     },
     {
       label: '3-5 Years',
-      imageUrl: '/35Years.png ',
+      imageUrl: '/static/images/35Years.png ',
       isFree: true,
     },
     {
       label: '5-8 Years',
-      imageUrl: '/58Years.png ',
+      imageUrl: '/static/images/58Years.png ',
       isFree: true,
     },
   ];

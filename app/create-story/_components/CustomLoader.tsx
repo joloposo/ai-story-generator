@@ -30,7 +30,7 @@ function CustomLoader({ isLoading }: { isLoading: boolean }) {
               <>
                 <ModalBody className='p-10 flex w-full items-center justify-center'>
                   <Image
-                    src='/loader.gif'
+                    src='/static/images/loader.gif'
                     alt='Loading'
                     width='300'
                     height='300'

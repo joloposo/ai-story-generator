@@ -12,17 +12,17 @@ function StoryType({ userSelection }: any) {
   const optionList = [
     {
       label: 'Story Book',
-      imageUrl: '/story.png ',
+      imageUrl: '/static/images/story.png ',
       isFree: true,
     },
     {
       label: 'Bed Story',
-      imageUrl: '/bedstory.png ',
+      imageUrl: '/static/images/bedstory.png ',
       isFree: true,
     },
     {
       label: 'Educational',
-      imageUrl: '/educational.png ',
+      imageUrl: '/static/images/educational.png ',
       isFree: true,
     },
   ];

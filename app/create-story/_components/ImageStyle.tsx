@@ -6,22 +6,22 @@ function ImageStyle({ userSelection }: any) {
   const optionList = [
     {
       label: '3D Cartoon',
-      imageUrl: '/3D.png ',
+      imageUrl: '/static/images/3D.png ',
       isFree: true,
     },
     {
       label: 'Paper Cut',
-      imageUrl: '/paperCut.png ',
+      imageUrl: '/static/images/paperCut.png ',
       isFree: true,
     },
     {
       label: 'Water Color',
-      imageUrl: '/watercolor.png ',
+      imageUrl: '/static/images/watercolor.png ',
       isFree: true,
     },
     {
       label: 'Pixel Style',
-      imageUrl: '/pixel.png ',
+      imageUrl: '/static/images/pixel.png ',
       isFree: true,
     },
   ];
