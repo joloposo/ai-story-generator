@@ -28,7 +28,7 @@ function ViewStory({ params }: any) {
     };
 
     return (
-        <div className='p-10 md:px-20 lg:px-40 flex-col'>
+        <div className='p-10 md:px-20 lg:px-40 flex-col min-h-screen'>
             <h2 className='font-bold text-4xl bg-primary text-center p-10 text-white'>{story?.output?.story?.title}</h2>
             <div className='relative'>
                 {/* @ts-ignore */}
