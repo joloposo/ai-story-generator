@@ -8,6 +8,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { eq } from 'drizzle-orm'; // Replace 'some-library' with the actual library name
 import { UserDetailContext } from './_context/UserDetailContext';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 interface ProviderProps {
   children: ReactNode;
@@ -51,10 +52,12 @@ function Provider({ children }: ProviderProps) {
 
   return (
     <UserDetailContext.Provider value={{ userDetail, setUserDetail }}>
+      <PayPalScriptProvider options={{ clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID ?? '', currency: 'EUR' }}>
       <NextUIProvider>
         {children}
         <ToastContainer />
       </NextUIProvider>
+      </PayPalScriptProvider>
     </UserDetailContext.Provider> 
   );
 }

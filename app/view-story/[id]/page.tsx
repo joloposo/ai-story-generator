@@ -45,7 +45,7 @@ function ViewStory({ params }: any) {
                     </div>
                     {[...Array(story?.output?.story?.chapters.length)].map((item, index) => (
                         <div key={index} className='bg-white p-10 border'>
-                            <StoryPages storyChapter={story?.output?.story?.chapters[index]} />
+                            <StoryPages storyChapter={story?.output?.story?.chapters[index]} key={index}/>
                         </div>
                     ))}
 

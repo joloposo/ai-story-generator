@@ -50,6 +50,7 @@ function StoryType({ userSelection }: any) {
                 : 'backdrop-grayscale'
             }`}
             onClick={() => onUserSelect(item)}
+            key={index}
           >
             <h2 className='absolute bottom-4 text-white text-2xl text-center w-full'>
               {item.label}
