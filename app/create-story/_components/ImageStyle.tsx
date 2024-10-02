@@ -41,7 +41,7 @@ function ImageStyle({ userSelection }: any) {
       <div className='grid grid-cols-3 gap-5 mt-3'>
         {optionList.map((item, index) => (
           <div
-            className={`relative grayscale hover:grayscale-0 cursor-pointer p-1
+            className={`relative grayscale hover:grayscale-0 cursor-pointer backdrop-opacity-0 p-1
                 ${
                   selectedOption === item.label
                     ? 'grayscale-0 border-2  rounded-3xl border-primary'
