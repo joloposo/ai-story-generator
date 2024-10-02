@@ -34,7 +34,7 @@ function Header() {
           className='sm:hidden'
         ></NavbarMenuToggle>
         <NavbarBrand>
-          <Image src='/logo.svg' alt='Logo' width={40} height={40} />
+          <Image src='static/images/logo.svg' alt='Logo' width={40} height={40} />
           <h2 className='font-bold text-2xl text-primary ml-3'>Kidso Story</h2>
         </NavbarBrand>
       </NavbarContent>
