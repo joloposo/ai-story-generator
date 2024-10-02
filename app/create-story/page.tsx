@@ -147,7 +147,7 @@ function CreateStory() {
   };
 
   return (
-    <div className='p-10 md:px-20 lg:px-40'>
+    <div className='min-h-screen p-10 md:px-20 lg:px-40'>
       <h2 className='font-extra bold text-[70px] text-primary text-center '>CREATE YOUR STORY</h2>
       <p className='text-2xl text-primary text-center'>
         Unlock your creativity with AI: Craft stories like never before! Let our AI bring your imagination to life, one
