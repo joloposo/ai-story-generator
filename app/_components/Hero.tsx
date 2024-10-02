@@ -25,7 +25,7 @@ function Hero() {
           </Link>
         </div>
         <div>
-          <Image src={'/hero.png'} alt='Hero' width={700} height={400} />
+          <Image src={'static/images/hero.png'} alt='Hero' width={700} height={400} />
         </div>
       </div>
     </div>
